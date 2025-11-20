@@ -1,3 +1,5 @@
+VERSION=v0.1.0
+
 .PHONY: all
 all: build
 
