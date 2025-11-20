@@ -1,0 +1,50 @@
+version: "2"
+linters:
+  default: all
+  disable:
+    - depguard
+    - wsl
+  settings:
+    errcheck:
+      check-blank: true
+    funlen:
+      lines: 100
+      statements: 50
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - experimental
+        - opinionated
+        - performance
+        - style
+    gocyclo:
+      min-complexity: 15
+    lll:
+      line-length: 120
+    nakedret:
+      max-func-lines: 30
+    nonamedreturns:
+      report-error-in-defer: true
+    wsl_v5:
+      allow-first-in-block: true
+      allow-whole-block: false
+      branch-max-lines: 2 
+  exclusions:
+    generated: lax
+    rules:
+      - path: _test\.go
+        linters:
+          - goconst
+run:
+  concurrency: 4
+  go: "1.25"
+  timeout: 5m
+formatters:
+  enable:
+    - gci
+    - gofumpt
+    - golines
+    - goimports
+  exclusions:
+    generated: lax
+    
